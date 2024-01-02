@@ -1,0 +1,15 @@
+{
+  "name": "com.teok.jlib",
+  "version": "1.0.0",
+  "displayName": "JLib",
+  "description": "A common library of useful scripts for my unity projects",
+  "unity": "2019.4",
+  "dependencies": {
+ },
+ "keywords": [],
+  "author": {
+    "name": "Teok",
+    "email": "teok@tutanota.com",
+    "url": "https://github.com/teok24/JLib"
+  }
+}
