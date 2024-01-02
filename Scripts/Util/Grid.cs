@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 namespace JLib.Utils
 {
     public class Grid<T>
@@ -14,7 +13,7 @@ namespace JLib.Utils
         public float CellSize { get { return cellSize; } }
         private Vector3 originPosition;
         private T[,] gridArray;
-        private TextMeshPro[,] debugTextArray;
+        private TextMesh[,] debugTextArray;
 
         public Grid(int width, int height, float cellSize = 1f, Vector3 originPosition = default(Vector3))
         {
@@ -24,7 +23,7 @@ namespace JLib.Utils
             this.originPosition = originPosition;
 
             gridArray = new T[width, height];
-            debugTextArray = new TextMeshPro[width, height];
+            debugTextArray = new TextMesh[width, height];
 
             
         }
@@ -64,7 +63,7 @@ namespace JLib.Utils
             Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.white);
         }
 
-        private TextMeshPro CreateWorldText(string text,
+        private TextMesh CreateWorldText(string text,
             Transform parent = null,
             Vector3 localPosition = default(Vector3),
             Color? color = null,
@@ -76,18 +75,15 @@ namespace JLib.Utils
                 sortingOrder);
         }
 
-    private TextMeshPro CreateWorldText(Transform parent, string text, Color color, Vector3 localPosition, int sortingOrder)
+    private TextMesh CreateWorldText(Transform parent, string text, Color color, Vector3 localPosition, int sortingOrder)
     {
-        GameObject textObject = new GameObject("World_Text", typeof(TextMeshPro));
+        GameObject textObject = new GameObject("World_Text", typeof(TextMesh));
         textObject.transform.SetParent(parent, false);
         textObject.transform.localPosition = localPosition;
 
-        TextMeshPro textMesh = textObject.GetComponent<TextMeshPro>();
-        textMesh.enableAutoSizing = true;
-        textMesh.alignment = TextAlignmentOptions.Center;
-        textMesh.characterSpacing = 1f;
-        textMesh.fontSizeMax = 1;
-        textMesh.fontSizeMin = 0.05f;
+        TextMesh textMesh = textObject.GetComponent<TextMesh>();
+        textMesh.alignment = TextAlignment.Center;
+        textMesh.fontSize = 1;
         textMesh.color = color;
 
         textMesh.text = text;
