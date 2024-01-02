@@ -17,7 +17,6 @@ namespace JLib.Utils.Pools
         public static event OnObjectTakenDelegate OnObjectTaken;
         public GameObjectPool(int poolSize,GameObject prefab, Transform parent) : base(poolSize)
         {
-            Debug.Log(prefab);
             this.prefab = prefab;
             this.parent = parent;
             Initialize();
